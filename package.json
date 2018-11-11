@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/netology-code/ra-homeworks#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "browser-sync": "^2.18.12",
     "highlight.js": "^9.11.0",
     "markdown-it": "^8.3.1"
