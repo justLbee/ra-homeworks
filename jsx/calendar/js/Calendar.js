@@ -25,7 +25,7 @@ const Calendar = ({date}) => {
 		const monthNamesNominative = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь',
 			'Ноябрь', 'Декабрь'];
 		const dayNames = ['Воскресенье', 'Понедельник', 'Вторник' ,'Среда', 'Четверг', 'Пятница', 'Суббота'];
-		
+
 		const todayDay = dayNames[date.getDay()];
 		const todayMonth = monthNames[date.getMonth()];
 		const todayMonthNom = monthNamesNominative[date.getMonth()];
@@ -42,6 +42,7 @@ const Calendar = ({date}) => {
 
 			for (let i = thisMonthFirstDays[thisMonthFirstDays.length - 1] + 1; i < thisMonthFirstDays[thisMonthFirstDays.length - 1] + 8; i++) {
 				firstWeek.push(i);
+
 			}
 
 			for (let i = firstWeek[firstWeek.length - 1] + 1; i < firstWeek[firstWeek.length - 1] + 8; i++) {
