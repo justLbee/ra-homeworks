@@ -1,39 +1,24 @@
 'use strict';
 
-ReactDOM.render(
-  <FeedbackForm data={form} />,
-  document.getElementById('root')
-);
-
-const form = {
-  salutation: '',
-  name: '',
-  subject: '',
-  message: '',
-  email: '',
-  snacks: []
-};
-
-function FeedbackForm({data}) {
+function FeedbackForm(props) {
   const SaveForm = (event) => {
     event.preventDefault();
 
-    data.salutation = salutation.querySelector('input[type=radio]:checked').value;
-    data.name = nameField.value;
-    data.email = emailField.value;
-    data.subject = subjectField.value;
-    data.message = messageField.value;
-
+    props.data.salutation = salutation.querySelector('input[type=radio]:checked').value;
+    props.data.name = nameField.value;
+    props.data.email = emailField.value;
+    props.data.subject = subjectField.value;
+    props.data.message = messageField.value;
 
     if(snacksField.querySelectorAll('input[type=checkbox]:checked')) {
-      data.snacks.shift();
+      props.data.snacks.shift();
     }
 
     Array.from(snacksField.querySelectorAll('input[type=checkbox]:checked')).forEach(snack => {
-      data.snacks.push(snack.value);
+      props.data.snacks.push(snack.value);
     });
 
-    console.log(JSON.stringify(data));
+    props.onSubmit(JSON.stringify(props.data));
   };
 
   let salutation, nameField, emailField, subjectField, messageField, snacksField;
