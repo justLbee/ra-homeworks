@@ -4,15 +4,38 @@ const VIEW_LIST = "view_list";
 const VIEW_MODULE = "view_module";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      icon: VIEW_MODULE,
+      cardView: true
+    }
+  }
+
+  viewTypeChange() {
+    if(this.state.cardView) {
+      this.setState({
+        icon: VIEW_LIST,
+        cardView: false
+      });
+    } else {
+      this.setState({
+        icon: VIEW_MODULE,
+        cardView: true
+      });
+    }
+  }
+
   render() {
     return (
       <div>
         <div className="toolbar">
           <IconSwitch
-            icon={VIEW_MODULE}
-            onSwitch={() => console.log("сменился тип вывода")} />
+            icon={this.state.icon}
+            onSwitch={() => this.viewTypeChange()} />
         </div>
-        {this.renderLayout(true)}
+        {this.renderLayout(this.state.cardView)}
       </div>
     );
   }
