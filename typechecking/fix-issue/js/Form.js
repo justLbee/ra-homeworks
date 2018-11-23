@@ -46,10 +46,10 @@ Form.propTypes = {
   handleSubmit: PropTypes.func,
   handleChange: PropTypes.func,
 
-  email: PropTypes.number,
+  email: PropTypes.node.isRequired,
   first_name: PropTypes.string,
   last_name: PropTypes.string,
-  age: PropTypes.integer,
-  nickname: PropTypes.string,
-  is_married: PropTypes.integer
+  age: PropTypes.number.isRequired,
+  nickname: PropTypes.node,
+  is_married: PropTypes.bool
 };
