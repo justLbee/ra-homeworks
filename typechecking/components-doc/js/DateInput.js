@@ -1,7 +1,6 @@
 'use strict';
 
 const DateInput = props => {
-  console.log(props.value);
   return (
     <div className="form-group">
       <label>{props.label}</label>
@@ -11,10 +10,20 @@ const DateInput = props => {
   )
 };
 
-const
+Date.prototype.yyyymmdd = function() {
+  const mm = this.getMonth() + 1;
+  const dd = this.getDate();
+
+  return [this.getFullYear(),
+    (mm>9 ? '' : '0') + mm,
+    (dd>9 ? '' : '0') + dd
+  ].join('-');
+};
+
+const dateNow = new Date();
 
 DateInput.defaultProps = {
-  value: new Date(now)
+  value: dateNow.yyyymmdd()
 };
 
 DateInput.propTypes = {
