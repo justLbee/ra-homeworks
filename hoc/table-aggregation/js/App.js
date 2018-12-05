@@ -13,7 +13,7 @@ function simpleColumnChart(Component, componentType) {
     componentWillReceiveProps(nextProps) {
       let list = [];
       if (componentType === 'date') {
-        list = nextProps.list.sort((a,b) => {
+        list = nextProps.list.sort((a, b) => {
           return new Date(b.date) - new Date(a.date);
         })
       } else {
@@ -32,7 +32,7 @@ function simpleColumnChart(Component, componentType) {
 
     componentHandler(date, type) {
       if (type === 'month') {
-        const monthNames = ["Janu", "Feb", "Mar", "Apr", "May", "Jun",
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
           "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
         ];
 
